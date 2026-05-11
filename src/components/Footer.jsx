@@ -5,103 +5,77 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative py-16 overflow-hidden"
+      className="relative py-20 overflow-hidden"
       style={{
         background: "linear-gradient(180deg, #1a0a00 0%, #0d0500 100%)",
       }}
     >
-      {/* Background ornament */}
-      <div className="absolute inset-0 opacity-5">
-        <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="footer-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-              <circle cx="40" cy="40" r="1" fill="#d4a843"/>
-              <path d="M40 20 Q50 30 40 40 Q30 30 40 20 Z" fill="#d4a843" opacity="0.5"/>
-              <path d="M20 40 Q30 30 40 40 Q30 50 20 40 Z" fill="#d4a843" opacity="0.5"/>
-              <path d="M60 40 Q50 30 40 40 Q50 50 60 40 Z" fill="#d4a843" opacity="0.5"/>
-              <path d="M40 60 Q50 50 40 40 Q30 50 40 60 Z" fill="#d4a843" opacity="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#footer-pattern)"/>
-        </svg>
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-gold-500/20 rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gold-500/10 rounded-full" />
       </div>
 
-      {/* Radial glow top */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle at 50% 0%, rgba(212,168,67,0.12) 0%, transparent 70%)" }}
-      />
-
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* Top ornament */}
-        <div className="flex justify-center mb-8">
-          <svg width="200" height="40" viewBox="0 0 200 40" fill="none">
-            <line x1="0" y1="20" x2="70" y2="20" stroke="#d4a843" strokeWidth="0.7" opacity="0.5"/>
-            <path d="M75 20 Q85 10 95 20 Q100 25 105 20 Q115 10 125 20" stroke="#d4a843" strokeWidth="1" fill="none" opacity="0.8"/>
-            <line x1="130" y1="20" x2="200" y2="20" stroke="#d4a843" strokeWidth="0.7" opacity="0.5"/>
-            <circle cx="100" cy="20" r="3" fill="#d4a843"/>
-            <circle cx="0" cy="20" r="2" fill="#d4a843" opacity="0.4"/>
-            <circle cx="200" cy="20" r="2" fill="#d4a843" opacity="0.4"/>
-          </svg>
+        {/* Top Ornament */}
+        <div className="flex justify-center mb-10">
+          <div className="flex items-center gap-4">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold-500" />
+            <span className="text-gold-500">✦</span>
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold-500" />
+          </div>
         </div>
 
-        {/* Couple names */}
-        <p className="text-gold-400 text-xs tracking-[0.4em] uppercase font-nunito mb-2 opacity-80">
-          ✦ Our Love Story ✦
+        <p className="text-gold-400 text-[10px] tracking-[0.5em] uppercase font-bold mb-4 opacity-70">
+          Our Love Story
         </p>
+        
         <h2
-          className="text-5xl md:text-6xl font-great mb-3"
+          className="text-5xl md:text-6xl lg:text-7xl font-great mb-6 text-white"
           style={{
-            background: "linear-gradient(135deg, #946531, #e4c94a, #f5e298, #e4c94a, #946531)",
+            background: "linear-gradient(135deg, #fff 0%, #d4a843 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            filter: "drop-shadow(0 2px 8px rgba(212,168,67,0.3))",
           }}
         >
           {groom.nickname} & {bride.nickname}
         </h2>
 
-        <p className="text-cream-200 font-lora italic text-base mb-6 opacity-80">
-          {events.akad.date}
-        </p>
+        <div className="flex flex-col items-center gap-2 mb-12">
+          <p className="text-cream-100 font-playfair italic text-lg opacity-80">
+            {events.akad.date}
+          </p>
+          <div className="w-10 h-[1px] bg-gold-500/30" />
+        </div>
 
-        {/* Doa */}
-        <div
-          className="max-w-xl mx-auto p-5 rounded-2xl mb-8"
-          style={{
-            background: "rgba(212,168,67,0.06)",
-            border: "1px solid rgba(212,168,67,0.15)",
-          }}
-        >
-          <p className="text-cream-100 font-lora italic text-sm leading-relaxed opacity-80">
-            &ldquo;Semoga Allah SWT senantiasa melimpahkan rahmat, berkah, dan cinta-Nya untuk perjalanan hidup kami bersama. Aamiin Ya Rabbal Alamin.&rdquo;
+        {/* Closing Quote */}
+        <div className="max-w-xl mx-auto mb-16 px-4">
+          <p className="text-cream-200 font-lora italic text-sm leading-loose opacity-60">
+            &ldquo;Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia.&rdquo;
+          </p>
+          <p className="text-[10px] uppercase tracking-widest text-gold-500 mt-4 opacity-50 font-bold">
+            (Matius 19:6)
           </p>
         </div>
 
         {/* Divider */}
-        <div
-          className="w-32 h-px mx-auto mb-8"
-          style={{ background: "linear-gradient(to right, transparent, #d4a843, transparent)" }}
-        />
+        <div className="w-24 h-[1px] mx-auto mb-12 bg-gradient-to-r from-transparent via-gold-500 to-transparent opacity-30" />
 
-        {/* Made with love */}
-        <p className="text-gold-600 text-xs font-nunito opacity-60">
-          Made with ❤️ for our special day
-        </p>
-        <p className="text-gold-700 text-xs font-nunito mt-1 opacity-40">
-          © 2025 {groom.nickname} & {bride.nickname} Wedding
-        </p>
+        <div className="space-y-2">
+          <p className="text-gray-500 text-[10px] tracking-[0.3em] uppercase font-bold">
+            Created with ❤️ by Antigravity
+          </p>
+          <p className="text-gray-600 text-[9px] tracking-widest uppercase opacity-40">
+            © 2025 {groom.nickname} & {bride.nickname} Wedding • All Rights Reserved
+          </p>
+        </div>
 
-        {/* Bottom ornament */}
-        <div className="flex justify-center mt-8">
-          <div className="flex items-center gap-2 opacity-30">
-            {["❀", "✿", "❋", "✿", "❀"].map((f, i) => (
-              <span key={i} className="text-gold-500" style={{ fontSize: i === 2 ? "1.2rem" : "0.8rem" }}>
-                {f}
-              </span>
-            ))}
-          </div>
+        {/* Floating Petal Icons */}
+        <div className="flex justify-center mt-12 gap-3 opacity-20">
+          {["❀", "✿", "❋"].map((f, i) => (
+            <span key={i} className="text-gold-400 text-xl animate-pulse" style={{ animationDelay: `${i * 0.5}s` }}>{f}</span>
+          ))}
         </div>
       </div>
     </footer>
