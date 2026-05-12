@@ -28,17 +28,24 @@ const defaultWishes = [
 ];
 
 const WishBox = () => {
-  const [wishes, setWishes] = useState([]);
+  const [wishes, setWishes] = useState(() => {
+    const stored = typeof localStorage !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch {
+        return defaultWishes;
+      }
+    }
+    return defaultWishes;
+  });
   const [form, setForm] = useState({ name: "", message: "", attendance: "hadir" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      setWishes(JSON.parse(stored));
-    } else {
-      setWishes(defaultWishes);
+    if (!stored) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultWishes));
     }
   }, []);

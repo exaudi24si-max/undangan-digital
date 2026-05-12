@@ -69,7 +69,7 @@ const EventCard = ({ title, time, timeEnd, venue, address, mapsUrl, calendarEven
 };
 
 const EventSection = () => {
-  const { events, turut_mengundang } = weddingData;
+  const { events } = weddingData;
 
   const dateObj = new Date(events.akad.dateISO);
   const dayName = dateObj.toLocaleDateString('id-ID', { weekday: 'long' }).toUpperCase();

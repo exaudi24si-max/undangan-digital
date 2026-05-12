@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const MusicPlayer = ({ isOpened }) => {
+const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
@@ -15,8 +15,8 @@ const MusicPlayer = ({ isOpened }) => {
           setIsPlaying(true);
           audio.muted = false;
         })
-        .catch((error) => {
-          console.log("Autoplay failed, waiting for interaction:", error);
+        .catch(() => {
+          // Autoplay failed, waiting for interaction
           // Try muted play as last resort (some browsers allow this)
           audio.muted = true;
           audio.play().catch(() => {});

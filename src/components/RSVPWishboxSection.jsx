@@ -1,20 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const RSVPWishboxSection = () => {
   const [form, setForm] = useState({ name: "", attendance: "hadir", guests: "1" });
-  const [wishes, setWishes] = useState([]);
+  const [wishes, setWishes] = useState([
+    { id: 1, name: "Keluarga Budi Santoso", message: "Selamat menempuh hidup baru! Semoga kasih Kristus senantiasa memberkati perjalanan rumah tangga kalian.", time: "1 minggu yang lalu", color: "#fef3c7" },
+    { id: 2, name: "Anita Wijaya", message: "Happy Wedding Randy & Yona! Tuhan Yesus memberkati setiap langkah kalian ke depan.", time: "1 minggu yang lalu", color: "#ecfdf5" },
+    { id: 3, name: "Rini Wulandari", message: "Selamat ya Yona & Randy, semoga bahagia selalu dalam lindungan Tuhan.", time: "1 minggu yang lalu", color: "#fdf2f8" },
+  ]);
   const [wishForm, setWishForm] = useState({ name: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setWishes([
-      { id: 1, name: "Keluarga Budi Santoso", message: "Selamat menempuh hidup baru! Semoga kasih Kristus senantiasa memberkati perjalanan rumah tangga kalian.", time: "1 minggu yang lalu", color: "#fef3c7" },
-      { id: 2, name: "Anita Wijaya", message: "Happy Wedding Randy & Yona! Tuhan Yesus memberkati setiap langkah kalian ke depan.", time: "1 minggu yang lalu", color: "#ecfdf5" },
-      { id: 3, name: "Rini Wulandari", message: "Selamat ya Yona & Randy, semoga bahagia selalu dalam lindungan Tuhan.", time: "1 minggu yang lalu", color: "#fdf2f8" },
-    ]);
-  }, []);
 
   const handleRSVP = async (e) => {
     e.preventDefault();

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import HeroSection from "./components/HeroSection";
 import QuoteCoupleSection from "./components/QuoteCoupleSection";
 import EventSection from "./components/EventSection";
@@ -10,16 +10,13 @@ import MusicPlayer from "./components/MusicPlayer";
 
 function App() {
   const [isOpened, setIsOpened] = useState(false);
-  const [guestName, setGuestName] = useState("");
-  const rafRef = useRef(null);
-
-  useEffect(() => {
+  const [guestName] = useState(() => {
     // Get guest name from URL ?to=Name
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
     const to = params.get("to");
-    if (to) setGuestName(decodeURIComponent(to));
-  }, []);
-
+    return to ? decodeURIComponent(to) : "";
+  });
+  
   useEffect(() => {
     if (isOpened) {
       document.body.style.overflow = "auto";

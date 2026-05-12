@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const SplashScreen = ({ guestName, onOpen }) => {
   const [visible, setVisible] = useState(true);
-  const [animateOut, setAnimateOut] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
   const [btnVisible, setBtnVisible] = useState(false);
 
@@ -17,7 +16,6 @@ const SplashScreen = ({ guestName, onOpen }) => {
   }, []);
 
   const handleOpen = () => {
-    setAnimateOut(true);
     setTimeout(() => {
       setVisible(false);
       onOpen();

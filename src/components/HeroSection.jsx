@@ -94,7 +94,7 @@ const HeroSection = () => {
                 { label: "Hours", value: timeLeft.hours },
                 { label: "Minutes", value: timeLeft.minutes },
                 { label: "Seconds", value: timeLeft.seconds },
-              ].map((item, idx) => (
+              ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center">
                   <span className="text-2xl md:text-3xl font-bold text-white mb-2">{String(item.value).padStart(2, '0')}</span>
                   <span className="text-[9px] uppercase tracking-widest text-gray-500 font-bold">{item.label}</span>
